@@ -1,0 +1,50 @@
+#gallery{
+margin: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+
+
+}
+
+#filter{
+
+}
+
+#filter {
+    margin: 1.5rem;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: #e8e8e8;
+    box-shadow: 20px 20px 60px #c5c5c5,
+    -20px -20px 60px #ffffff;
+    transition: 0.3s;
+}
+
+#filter:hover{
+    border-radius: 1rem;
+    background: #52D1DC;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+    inset -20px -20px 60px #ffffff;
+    transition: 0.5s;
+}
+#filter:focus {
+    border-radius: 1rem;
+    outline-color: #e8e8e8;
+    background: #52D1DC;
+    box-shadow: inset 20px 20px 60px #c5c5c5,
+    inset -20px -20px 60px #ffffff;
+    transition: 0.3s;
+}
+
+
+.thumbnail {
+    margin: .5em .5em;
+    height: 12em;
+    width: 12em;
+    object-fit: cover;
+}
