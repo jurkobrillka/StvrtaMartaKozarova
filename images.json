@@ -3,7 +3,7 @@
     {
       "filename": "brusselLetisko.jpg",
       "name": "Letisko Charleroi",
-      "description": "Letisko v Charleroi (Mali sme letieť do brusselu)",
+      "description": "Letisko v Charleroi (Mali sme letieť do brusselu) #belgicko",
       "date": "2023-08-02",
       "coordinates": { "latitude": 50.470934, "longitude": 4.484071 },
       "url": "../photos/brusselLetisko.jpg"
@@ -11,7 +11,7 @@
     {
       "filename": "brusselEuropa.jpg",
       "name": "Komisia EU",
-      "description": "Zrazu sme sa ocitli pred komisiou EU v brusseli",
+      "description": "Zrazu sme sa ocitli pred komisiou EU v brusseli. #belicko",
       "date": "2023-08-02",
       "coordinates": { "latitude": 50.842734, "longitude": 4.383933 },
       "url": "../photos/brusselEuropa.jpg"
@@ -19,7 +19,7 @@
     {
       "filename": "brusselZlato.jpg",
       "name": "Ulice brussela",
-      "description": "Následne sme prešli do brusselských ulíc",
+      "description": "Následne sme prešli do brusselských ulíc #belgicko",
       "date": "2023-08-02",
       "coordinates": { "latitude": 50.847249, "longitude": 4.352743 },
       "url": "../photos/brusselZlato.jpg"
@@ -27,7 +27,7 @@
     {
       "filename": "antwerpenMy.jpg",
       "name": "Mesto antwerpen",
-      "description": "Z brussela do krásneho mesta antwerpen",
+      "description": "Z brussela do krásneho mesta antwerpen #belgicko",
       "date": "2023-08-03",
       "coordinates": { "latitude": 51.221096, "longitude": 4.399559 },
       "url": "../photos/antwerpenMy.jpg"
@@ -35,7 +35,7 @@
     {
       "filename": "maaskantjeJa.jpg",
       "name": "Legendary maaskantje",
-      "description": "Povinná zastávka v maaskantje z ktorej sme sa nevedeli ponúť ďalej",
+      "description": "Povinná zastávka v maaskantje z ktorej sme sa nevedeli ponúť ďalej #holandsko",
       "date": "2023-08-04",
       "coordinates": { "latitude": 51.657148, "longitude": 5.368826 },
       "url": "../photos/maaskantjeJa.jpg"
@@ -43,7 +43,7 @@
     {
       "filename": "bocholtTana.jpg",
       "name": "Fahrrad stadt bocholt",
-      "description": "Presun do nemeckého bocholtu",
+      "description": "Presun do nemeckého bocholtu. #nemecko",
       "date": "2023-08-04",
       "coordinates": { "latitude": 51.841609, "longitude": 6.615656 },
       "url": "../photos/bocholtTana.jpg"
@@ -51,7 +51,7 @@
     {
       "filename": "bremenPani.jpg",
       "name": "Umenie a teta z bremenu",
-      "description": "Z juhu na sever do extrémne zaujímavého mesta bremen",
+      "description": "Z juhu na sever do extrémne zaujímavého mesta bremen. #nemecko",
       "date": "2023-08-05",
       "coordinates": { "latitude": 53.077340, "longitude": 8.809623 },
       "url": "../photos/bremenPani.jpg"
@@ -59,7 +59,7 @@
     {
       "filename": "hamburgKenji.jpg",
       "name": "Kenji v hamburgu",
-      "description": "Moj fella kenji v hamburgu",
+      "description": "Moj fella kenji v hamburgu. #nemecko",
       "date": "2023-08-06",
       "coordinates": { "latitude": 53.541366, "longitude": 9.986601 },
       "url": "../photos/hamburgKenji.jpg"
@@ -67,7 +67,7 @@
     {
       "filename": "lubeckPivo.jpg",
       "name": "Severny lubeck",
-      "description": "Táto krčma v lubecku ma asi 500 rokov, no cap",
+      "description": "Táto krčma v lubecku ma asi 500 rokov, no cap. #nemecko",
       "date": "2023-08-07",
       "coordinates": { "latitude": 53.869445, "longitude": 10.689059 },
       "url": "../photos/lubeckPivo.jpg"
@@ -75,7 +75,7 @@
     {
       "filename": "danskoMore.jpg",
       "name": "Koniec v dansku",
-      "description": "Koniec cesty v dansku, už sa len vrátiť domov",
+      "description": "Koniec cesty v dansku, už sa len vrátiť domov. #dansko",
       "date": "2023-08-08",
       "coordinates": { "latitude": 54.841690, "longitude": 9.464019 },
       "url": "../photos/danskoMore.jpg"
