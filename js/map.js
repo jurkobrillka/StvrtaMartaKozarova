@@ -8,11 +8,22 @@ let clicked;
 let markers = [];
 let imgsFiltered = [];
 let imagesPhotos = [];
+const toggleButton = document.getElementById("toggleButton");
+const toggleStatus = document.getElementById("toggleStatus");
+toggleButton.addEventListener("click", toggleHandler);
 
+function toggleHandler() {
+    // Check the state of the button
+    if (toggleButton.checked) {
+        createNavigator(1)
+    } else {
+        createNavigator(0)
+    }
+}
 
 
 let map = L.map('map');
-map = map.setView([35.8, -30], 2);
+map = map.setView([53.077340, 8.809623], 6);
 
 const tiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
@@ -52,7 +63,9 @@ function getImages() {
 
                 gallery.appendChild(lightBox);
                 refreshFsLightbox();
-            })
+            });
+
+            createNavigator(0);
 
         } else {
             console.error("response is empty");
@@ -216,6 +229,7 @@ function insertPoint(place) {
     console.log(place + "hihi")
     let marker = L.marker([place.coordinates.latitude, place.coordinates.longitude]).addTo(map);
     marker.bindPopup("<b>" + place.name + "</b><br>"
+        + place.description + "<br>"
         + place.date + "<br>"
         /*+ place.timestamp.time*/);
     markers.push(marker);
@@ -293,3 +307,118 @@ function makeUniqueArray(array) {
 }
 
 addMarkers().then(console.log(imagesPhotos))
+
+
+const compareDates = (a, b) => {
+    const dateComparison = new Date(a.date + ' ' + a.time) - new Date(b.date + ' ' + b.time);
+    if (dateComparison === 0) {
+        return new Date('1970-01-01 ' + a.time) - new Date('1970-01-01 ' + b.time);
+    }
+    return dateComparison;
+};
+
+const sortedData = imagesPhotos.sort(compareDates);
+
+console.log(sortedData);
+
+let routingControl;
+
+/*
+function createNavigator(visible) {
+    var latLngArr = [];
+
+    // Assuming imagesPhotos is an array of objects with 'coordinates' property
+    if (visible !== 0) {
+        imagesPhotos.forEach(place => {
+            latLngArr.push(L.latLng(place.coordinates.latitude, place.coordinates.longitude));
+        });
+    }
+
+    console.log(latLngArr);
+    console.log("LATLONGARRAYKO");
+
+    console.log(imagesPhotos[0].coordinates.latitude + "POZOR POZOR");
+
+    // Assuming 'map' is a valid Leaflet map object
+    routingControl = L.Routing.control({
+        waypoints: latLngArr,
+        routeWhileDragging: true
+    }).addTo(map);
+
+    if(visible === 0){
+        console.log("MAL BY SOM ZRUSIL TU GPS MAPU")
+
+    }
+}*/
+function createNavigator(visible) {
+    let indexDeleting;
+    var latLngArr = [];
+
+    // Assuming imagesPhotos is an array of objects with 'coordinates' property
+    if (visible !== 0) {
+        imagesPhotos.forEach(place => {
+            latLngArr.push(L.latLng(place.coordinates.latitude, place.coordinates.longitude));
+        });
+    }
+
+    console.log(latLngArr);
+    console.log("LATLONGARRAYKO");
+
+    console.log(imagesPhotos[0].coordinates.latitude + "POZOR POZOR");
+
+    // Check if routingControl exists, and remove it if visible is 0
+    if (routingControl && visible === 0) {
+        map.removeControl(routingControl);
+        routingControl = null;
+    }
+
+    // Clear the map's layers if visible is 0
+    if (visible === 0) {
+        toggleStatus.textContent = "";
+        map.eachLayer(layer => {
+            if (layer !== tiles) {
+                map.removeLayer(layer);
+            }
+        });
+        let routingContainer = document.querySelector('.leaflet-routing-container');
+
+        console.log("DISPLAYING NONE");
+        console.log(routingContainer)
+// Check if the element exists before manipulating its style
+        if (routingContainer) {
+            console.log("DISPLAYING NONE");
+            routingContainer.style.display = 'none';
+        }
+
+        console.log("ADDING MARKERS")
+        console.log(imagesPhotos)
+        console.log("BEFORE")
+        imagesPhotos = makeUniqueArray(imagesPhotos);
+        console.log(imagesPhotos)
+        console.log("AFTER")
+        imagesPhotos.forEach(place => {
+            console.log(place.date)
+            console.log("IN FOR")
+            insertPoint(place);
+        });
+    }
+
+    // Assuming 'map' is a valid Leaflet map object
+    routingControl = L.Routing.control({
+        waypoints: latLngArr,
+        routeWhileDragging: true
+    }).addTo(map);
+
+    routingControl.on('routesfound', function (event) {
+        let routes = event.routes;
+        let totalDistance = routes.reduce((sum, route) => sum + route.summary.totalDistance, 0);
+        toggleStatus.textContent = "Total Distance: " + (totalDistance / 1000).toFixed(2) + " kilometers";
+        console.log("Total Distance: " + totalDistance.toFixed(2) + " meters");
+        console.log("Total Distance: " + (totalDistance / 1000).toFixed(2) + " kilometers");
+    });
+
+    if (visible === 0) {
+        console.log("MAL BY SOM ZRUSIL TU GPS MAPU");
+    }
+}
+
