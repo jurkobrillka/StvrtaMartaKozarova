@@ -359,6 +359,17 @@ function createNavigator(visible) {
         imagesPhotos.forEach(place => {
             latLngArr.push(L.latLng(place.coordinates.latitude, place.coordinates.longitude));
         });
+
+        routingControl = L.Routing.control({
+            waypoints: latLngArr,
+            routeWhileDragging: true
+        }).addTo(map);
+
+        routingControl.on('routesfound', function (event) {
+            let routes = event.routes;
+            let totalDistance = routes.reduce((sum, route) => sum + route.summary.totalDistance, 0);
+            toggleStatus.textContent = "Celková vzdialenosť: " + (totalDistance / 1000).toFixed(2) + " kilometers";
+        });
     }
 
     console.log(latLngArr);
@@ -404,18 +415,7 @@ function createNavigator(visible) {
     }
 
     // Assuming 'map' is a valid Leaflet map object
-    routingControl = L.Routing.control({
-        waypoints: latLngArr,
-        routeWhileDragging: true
-    }).addTo(map);
 
-    routingControl.on('routesfound', function (event) {
-        let routes = event.routes;
-        let totalDistance = routes.reduce((sum, route) => sum + route.summary.totalDistance, 0);
-        toggleStatus.textContent = "Total Distance: " + (totalDistance / 1000).toFixed(2) + " kilometers";
-        console.log("Total Distance: " + totalDistance.toFixed(2) + " meters");
-        console.log("Total Distance: " + (totalDistance / 1000).toFixed(2) + " kilometers");
-    });
 
     if (visible === 0) {
         console.log("MAL BY SOM ZRUSIL TU GPS MAPU");
